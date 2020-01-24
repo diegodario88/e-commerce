@@ -6,7 +6,7 @@ const CustomButton = ({ children, isGoogleSignIn, ...otherProps }) => (
     <button className=
         {`${isGoogleSignIn ? 'google-signin' : ''} custom-button`}
         {...otherProps}>
-
+    
         {children}
 
     </button >
@@ -14,3 +14,5 @@ const CustomButton = ({ children, isGoogleSignIn, ...otherProps }) => (
 )
 
 export default CustomButton
+
+
