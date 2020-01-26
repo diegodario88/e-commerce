@@ -9,6 +9,5 @@ export default function HomepageComponent() {
         <div className='homepage'>
             <DirectoryComponent />
         </div >
-
     )
 }

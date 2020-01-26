@@ -13,12 +13,19 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
+    box-shadow: 0 3px 3px rgba(#000, .25);
+    transition: all 150ms ease;
   
     &:hover {
       background-color: white;
       color: black;
       border: 1px solid black;
     }
+    &:active{
+      box-shadow: 0;
+      transform: translatey(2px);
+    }
+
     &.google-signin{
       background-color: #4285f4;
       color: white;
