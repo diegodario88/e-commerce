@@ -1,6 +1,6 @@
 <img src="./src/assets/crown.svg" width="200px" align="center" />
 <h1 align="center">Carcará eCommerce</h1>
-<p align="center">Projeto <strong>Complete React Developer in 2020</strong> desenvolvido durante as férias de janeiro <a href="https://rocketseat.com.br">Visitar o projeto</a> 🚀👩🏽‍🚀</p>
+<p align="center">Projeto <strong>Complete React Developer in 2020</strong> desenvolvido durante as férias de janeiro <a href="https://google.com.br">Visitar o projeto</a> 🚀👩🏽‍🚀</p>
 <p align="center">
 <a href="https://rocketseat.com.br">
     <img alt="Made by DiegoDario" src="https://img.shields.io/badge/made%20by-DiegoDario-%237159C1">
