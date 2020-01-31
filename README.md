@@ -1,10 +1,10 @@
 <p align="center"> 
-<img src="./src/assets/crown.svg" width="200px" align="center" />
+<img src="./src/assets/crown.svg" width="200px" align="center" href="https://github.com/diegodario88" />
 </p>
 <h1 align="center">Carcará eCommerce</h1>
-<p align="center">Projeto <strong>Complete React Developer in 2020</strong> desenvolvido durante as férias de janeiro <a href="https://google.com.br">Visitar o projeto</a> 🚀👩🏽‍🚀</p>
+<p align="center">Projeto <strong>Complete React Developer in 2020</strong>, desenvolvido durante as férias de janeiro <a href="https://ecommerc3.herokuapp.com/">Visitar o projeto</a> 🚀👩🏽‍🚀</p>
 <p align="center">
-<a href="https://rocketseat.com.br">
+<a href="https://github.com/diegodario88">
     <img alt="Made by DiegoDario" src="https://img.shields.io/badge/made%20by-DiegoDario-%237159C1">
   </a>
   <a aria-label="Versão do Node" href="https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.14.1">
