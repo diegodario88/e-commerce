@@ -2,7 +2,6 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: 'ecommerc3-db.firebaseapp.com',
@@ -14,8 +13,10 @@ const config = {
   measurementId: 'G-PMY15ETZKQ'
 }
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
-
+export const createUserProfileDocument = async (
+  userAuth,
+  additionalData
+) => {
   if (!userAuth) return
 
   const userRef = firestore.doc(`users/${userAuth.uid}`)
@@ -28,14 +29,12 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const createdAt = new Date()
 
     try {
-
       await userRef.set({
         displayName,
         email,
         createdAt,
         ...additionalData
       })
-
     } catch (error) {
       console.log('error creating user', error.message)
     }
@@ -45,21 +44,39 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 }
 
 //Seed Data
-export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) => {
-    
+export const addCollectionsAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
   try {
     const collectionRef = firestore.collection(collectionKey)
     const batch = firestore.batch()
-    
+
     objectsToAdd.forEach(obj => {
       const newDocRef = collectionRef.doc()
-      batch.set(newDocRef, obj)      
+      batch.set(newDocRef, obj)
     })
-    //batch.commit()      
+    //batch.commit()
   } catch (error) {
     console.log(error)
-      
   }
+}
+
+export const convertCollectionsSnapshotToMap = collections => {
+  const transformedCollection = collections.docs.map(doc => {
+    const { title, items } = doc.data()
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    }
+  })
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection
+    return accumulator
+  }, {})
 }
 
 firebase.initializeApp(config)

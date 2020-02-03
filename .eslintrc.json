@@ -1,32 +1,27 @@
 {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es6": true
     },
     "extends": [
+        "prettier/babel",
         "eslint:recommended",
+        "prettier",
         "plugin:react/recommended"
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly",
-        "process": true
-    },
     "parserOptions": {
         "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
             "jsx": true
         },
-        "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
         "linebreak-style": [
             "error",
             "unix"
@@ -39,7 +34,9 @@
             "error",
             "never"
         ],
-        "react/prop-types": 0
+        "prettier/prettier": [
+            "error"
+        ]
     },
     "parser": "babel-eslint"
 }
