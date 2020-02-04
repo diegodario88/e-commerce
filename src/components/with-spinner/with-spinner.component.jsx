@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {
   SpinnerContainer,
-  SpinnerOverlay
+  SpinnerOverlay,
 } from './with.spinner.styles'
 
 const WithSpinner = WrappedComponent => {
@@ -18,7 +18,7 @@ const WithSpinner = WrappedComponent => {
   }
 
   Spinner.propTypes = {
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool,
   }
 
   return Spinner
