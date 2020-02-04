@@ -1,22 +1,44 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-import CollectionItem from '../collection-item/collection-item.component';
-import './collection-preview.styles.scss'
+import CollectionItem from '../collection-item/collection-item.component'
+import {
+  CollectionPreviewContainer,
+  TitleContainer,
+  PreviewContainer,
+} from './collection-preview.styles'
 
-export default function CollectionPreview({ title, items }) {
-    return (
-        <div className='collection-preview'>
+const CollectionPreview = ({
+  title,
+  items,
+  history,
+  match,
+  routeName,
+}) => (
+  <CollectionPreviewContainer>
+    <TitleContainer
+      onClick={() => history.push(`${match.path}/${routeName}`)}
+    >
+      {title.toUpperCase()}
+    </TitleContainer>
 
-            <h1 className='title'>{title.toUpperCase()}</h1>
+    <PreviewContainer>
+      {items
+        .filter((item, idx) => idx < 4)
+        .map(item => (
+          <CollectionItem key={item.id} item={item} />
+        ))}
+    </PreviewContainer>
+  </CollectionPreviewContainer>
+)
 
-            <div className='preview'>
-                {items
-                    .filter((item, idx) => idx < 4)
-                    .map(item => (
-                        <CollectionItem key={item.id} item={item} />
-                    ))}
-            </div>
-
-        </div>
-    )
+CollectionPreview.propTypes = {
+  title: PropTypes.object,
+  items: PropTypes.object,
+  history: PropTypes.object,
+  match: PropTypes.object,
+  routeName: PropTypes.object,
 }
+
+export default withRouter(CollectionPreview)

@@ -4,47 +4,53 @@ import { createStructuredSelector } from 'reselect'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import CustomButton from '../custom-button/custom-button.component'
 import CartItem from '../cart-item/cart-item.component'
 import { selectCartItems } from '../../redux/cart/cart.selectors'
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
 
-import './cart-dropdown.styles.scss'
+import {
+  CartDropdownContainer,
+  CartItemsContainer,
+  EmptyMessageContainer,
+  CartDropdownButton,
+} from './cart-dropdown.styles'
 
 const CartDropdown = ({ cartItems, history, toggleCartHidden }) => (
-  <div className="cart-dropdown">
-    <div className="cart-items">
+  <CartDropdownContainer>
+    <CartItemsContainer>
       {cartItems.length ? (
         cartItems.map(cartItem => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <span className="empty-message">Your cart is empty</span>
+        <EmptyMessageContainer>
+          Your cart is empty
+        </EmptyMessageContainer>
       )}
-    </div>
-    <CustomButton
+    </CartItemsContainer>
+    <CartDropdownButton
       onClick={() => {
         history.push('/checkout')
         toggleCartHidden()
       }}
     >
       go to checkout
-    </CustomButton>
-  </div>
+    </CartDropdownButton>
+  </CartDropdownContainer>
 )
 
 const mapDispatchToProps = dispatch => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden())
+  toggleCartHidden: () => dispatch(toggleCartHidden()),
 })
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
 })
 
 CartDropdown.propTypes = {
-  cartItems: PropTypes.arrayOf(CartItem),
-  history: PropTypes.func,
-  toggleCartHidden: PropTypes.func
+  cartItems: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.object,
+  toggleCartHidden: PropTypes.func,
 }
 
 export default withRouter(
