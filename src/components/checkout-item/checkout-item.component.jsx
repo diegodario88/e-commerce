@@ -35,7 +35,7 @@ const CheckoutItem = ({
         <span>{quantity}</span>
         <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </QuantityContainer>
-      <span>{price}</span>
+      <TextContainer>$ {price.toFixed(1)}</TextContainer>
       <RemoveButtonContainer
         onClick={() => clearItemFromCart(cartItem)}
       >

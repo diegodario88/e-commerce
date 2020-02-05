@@ -10,7 +10,7 @@ const config = {
   storageBucket: 'ecommerc3-db.appspot.com',
   messagingSenderId: '250882480800',
   appId: '1:250882480800:web:8df71f5eae20c30ecec7c5',
-  measurementId: 'G-PMY15ETZKQ'
+  measurementId: 'G-PMY15ETZKQ',
 }
 
 export const createUserProfileDocument = async (
@@ -33,7 +33,7 @@ export const createUserProfileDocument = async (
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       })
     } catch (error) {
       console.log('error creating user', error.message)
@@ -69,7 +69,7 @@ export const convertCollectionsSnapshotToMap = collections => {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
-      items
+      items,
     }
   })
 
