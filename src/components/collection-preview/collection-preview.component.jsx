@@ -34,11 +34,11 @@ const CollectionPreview = ({
 )
 
 CollectionPreview.propTypes = {
-  title: PropTypes.object,
-  items: PropTypes.object,
+  title: PropTypes.string,
+  items: PropTypes.array,
   history: PropTypes.object,
   match: PropTypes.object,
-  routeName: PropTypes.object,
+  routeName: PropTypes.string,
 }
 
 export default withRouter(CollectionPreview)
