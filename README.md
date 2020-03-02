@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src="./src/assets/crown.svg" width="200px" align="center" href="https://github.com/diegodario88" />
+<img src="./client/src/assets/crown.svg" width="200px" align="center" href="https://github.com/diegodario88" />
 </p>
 <h1 align="center">Carcará eCommerce</h1>
 <p align="center">Projeto <strong>Complete React Developer in 2020</strong>, desenvolvido durante as férias de janeiro <a href="https://ecommerc3.herokuapp.com/">Visitar o projeto</a> 🚀👩🏽‍🚀</p>
