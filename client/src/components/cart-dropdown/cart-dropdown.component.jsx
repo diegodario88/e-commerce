@@ -1,12 +1,8 @@
 import React, { useContext } from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
 import { withRouter } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 import CartItem from '../cart-item/cart-item.component'
-import { selectCartItems } from '../../redux/cart/cart.selectors'
-import CartContext from '../../contexts/cart/cart.context'
+import { CartContext } from '../../providers/cart/cart.provider'
 
 import {
   CartDropdownContainer,
@@ -15,8 +11,8 @@ import {
   CartDropdownButton,
 } from './cart-dropdown.styles'
 
-const CartDropdown = ({ cartItems, history, toggleCartHidden }) => {
-  const { toggleHidden } = useContext(CartContext)
+const CartDropdown = ({ history }) => {
+  const { toggleHidden, cartItems } = useContext(CartContext)
 
   return (
     <CartDropdownContainer>
@@ -43,16 +39,4 @@ const CartDropdown = ({ cartItems, history, toggleCartHidden }) => {
   )
 }
 
-
-const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
-})
-
-CartDropdown.propTypes = {
-  cartItems: PropTypes.arrayOf(PropTypes.object),
-  history: PropTypes.object,
-}
-
-export default withRouter(
-  connect(mapStateToProps)(CartDropdown)
-)
+export default withRouter(CartDropdown)
